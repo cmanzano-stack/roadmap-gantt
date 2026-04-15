@@ -794,6 +794,7 @@ async function crearSheet(){
   try {
     const res = await fetch(N8N_WEBHOOK_URL, {
       method:'POST',
+      mode:'cors',
       headers:{'Content-Type':'application/json'},
       body: JSON.stringify({
         clientName:  S.client.name,
