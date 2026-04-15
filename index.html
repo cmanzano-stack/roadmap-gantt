@@ -6,21 +6,10 @@
 <title>Fuerza de Apprecio – Seguimiento de Implementación</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
-/* ═══════════════════════════════════════════════
-   RESET & BASE
-═══════════════════════════════════════════════ */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{font-size:14px}
-body{
-  font-family:'Montserrat',sans-serif;
-  background:#F9F0F2;
-  color:#1A0A0E;
-  min-height:100vh;
-}
+body{font-family:'Montserrat',sans-serif;background:#F9F0F2;color:#1A0A0E;min-height:100vh;}
 
-/* ═══════════════════════════════════════════════
-   BRAND COLORS (Apprecio Official)
-═══════════════════════════════════════════════ */
 :root{
   --ap-primary   : #FA345E;
   --ap-primary-dk: #D42A4E;
@@ -30,114 +19,41 @@ body{
   --ap-green-bg  : #F0FFF4;
   --ap-dark      : #2A0A14;
   --ap-mid       : #6B1E30;
-  --ap-red       : #EF4444;
-  --ap-yellow    : #F59E0B;
   --radius       : 10px;
   --shadow       : 0 2px 14px rgba(250,52,94,.10);
 }
 
-/* ═══════════════════════════════════════════════
-   TOP BAR
-═══════════════════════════════════════════════ */
-.topbar{
-  background:var(--ap-primary-dk);
-  color:#fff;
-  padding:7px 24px;
-  display:flex;
-  align-items:center;
-  gap:10px;
-  font-size:11px;
-  flex-wrap:wrap;
-}
+/* TOP BAR */
+.topbar{background:var(--ap-primary-dk);color:#fff;padding:7px 24px;display:flex;align-items:center;gap:10px;font-size:11px;flex-wrap:wrap;}
 .topbar span{opacity:.75}
 .topbar strong{opacity:.95}
 .topbar-actions{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap}
-.tb-btn{
-  padding:5px 13px;
-  border-radius:20px;
-  border:1.5px solid rgba(255,255,255,.4);
-  background:transparent;
-  color:#fff;
-  font-size:11px;
-  font-weight:600;
-  cursor:pointer;
-  font-family:inherit;
-  transition:background .2s,border-color .2s;
-  display:flex;align-items:center;gap:5px;
-}
+.tb-btn{padding:5px 13px;border-radius:20px;border:1.5px solid rgba(255,255,255,.4);background:transparent;color:#fff;font-size:11px;font-weight:600;cursor:pointer;font-family:inherit;transition:background .2s,border-color .2s;display:flex;align-items:center;gap:5px;}
 .tb-btn:hover{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.7)}
 .tb-btn.primary{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.6)}
 .tb-btn.primary:hover{background:rgba(255,255,255,.3)}
 .tb-btn.success{background:var(--ap-green);border-color:var(--ap-green)}
+.tb-btn.success:hover{background:#054a38;border-color:#054a38}
 
-/* ═══════════════════════════════════════════════
-   HEADER
-═══════════════════════════════════════════════ */
-header{
-  background:linear-gradient(135deg,var(--ap-primary-dk) 0%,var(--ap-primary) 100%);
-  color:#fff;
-  padding:18px 28px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:16px;
-  flex-wrap:wrap;
-}
+/* HEADER */
+header{background:linear-gradient(135deg,var(--ap-primary-dk) 0%,var(--ap-primary) 100%);color:#fff;padding:18px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
 .hdr-brand{display:flex;align-items:center;gap:14px}
-.ap-logo{
-  display:flex;align-items:center;gap:12px;
-  font-size:18px;font-weight:800;letter-spacing:-.5px;
-  line-height:1;
-}
-.ap-logo img{
-  height:56px;
-  width:auto;
-  max-width:200px;
-  object-fit:contain;
-  filter:brightness(0) invert(1);
-}
+.ap-logo{display:flex;align-items:center;gap:12px;font-size:18px;font-weight:800;letter-spacing:-.5px;line-height:1;}
+.ap-logo img{height:56px;width:auto;max-width:200px;object-fit:contain;filter:brightness(0) invert(1);}
 .ap-sub{font-size:11px;opacity:.75;margin-top:3px;font-weight:500;letter-spacing:.3px}
-
 .hdr-right{display:flex;flex-direction:column;align-items:flex-end;gap:8px}
-.client-pill{
-  display:flex;align-items:center;gap:8px;
-  background:rgba(255,255,255,.15);
-  border:1.5px solid rgba(255,255,255,.35);
-  border-radius:8px;padding:8px 14px;
-}
+.client-pill{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.15);border:1.5px solid rgba(255,255,255,.35);border-radius:8px;padding:8px 14px;}
 .client-pill label{font-size:10px;opacity:.7;text-transform:uppercase;letter-spacing:.6px;white-space:nowrap}
-.client-pill input{
-  background:transparent;border:none;color:#fff;
-  font-size:15px;font-weight:700;width:220px;
-  font-family:inherit;outline:none;
-}
+.client-pill input{background:transparent;border:none;color:#fff;font-size:15px;font-weight:700;width:220px;font-family:inherit;outline:none;}
 .client-pill input::placeholder{opacity:.5}
 .client-pill input:focus{border-bottom:1.5px solid rgba(255,255,255,.8)}
-
-.date-pill{
-  display:flex;align-items:center;gap:8px;
-  background:rgba(255,255,255,.1);
-  border:1px solid rgba(255,255,255,.2);
-  border-radius:6px;padding:5px 12px;
-  font-size:11px;
-}
+.date-pill{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:6px;padding:5px 12px;font-size:11px;}
 .date-pill label{opacity:.65;font-weight:500}
-.date-pill input[type=date]{
-  background:transparent;border:none;color:#fff;
-  font-family:inherit;font-size:11px;font-weight:600;
-  outline:none;cursor:pointer;
-}
+.date-pill input[type=date]{background:transparent;border:none;color:#fff;font-family:inherit;font-size:11px;font-weight:600;outline:none;cursor:pointer;}
 .date-pill input[type=date]::-webkit-calendar-picker-indicator{filter:invert(1);opacity:.7;cursor:pointer}
 
-/* ═══════════════════════════════════════════════
-   SUMMARY BAR
-═══════════════════════════════════════════════ */
-.summary{
-  background:#fff;
-  border-bottom:1px solid #F5C6D0;
-  padding:10px 28px;
-  display:flex;gap:24px;align-items:center;flex-wrap:wrap;
-}
+/* SUMMARY BAR */
+.summary{background:#fff;border-bottom:1px solid #F5C6D0;padding:10px 28px;display:flex;gap:24px;align-items:center;flex-wrap:wrap;}
 .kpi{display:flex;flex-direction:column;align-items:center;min-width:55px}
 .kpi .num{font-size:20px;font-weight:800;color:var(--ap-primary);line-height:1}
 .kpi .lbl{font-size:9px;color:#999;text-transform:uppercase;letter-spacing:.6px;margin-top:1px}
@@ -148,326 +64,133 @@ header{
 .prog-fill{height:100%;background:linear-gradient(90deg,var(--ap-primary),var(--ap-primary-dk));border-radius:4px;transition:width .6s}
 .prog-pct{font-size:12px;font-weight:800;color:var(--ap-primary);white-space:nowrap}
 
-/* ═══════════════════════════════════════════════
-   TABS
-═══════════════════════════════════════════════ */
-.tabs{
-  background:#fff;border-bottom:2px solid #F5C6D0;
-  display:flex;padding:0 28px;gap:4px;
-}
-.tab-btn{
-  padding:12px 18px;
-  font-size:13px;font-weight:600;
-  color:#aaa;background:transparent;border:none;
-  border-bottom:3px solid transparent;
-  margin-bottom:-2px;
-  cursor:pointer;display:flex;align-items:center;gap:7px;
-  font-family:inherit;transition:color .2s,border-color .2s;
-  white-space:nowrap;
-}
+/* TABS */
+.tabs{background:#fff;border-bottom:2px solid #F5C6D0;display:flex;padding:0 28px;gap:4px;}
+.tab-btn{padding:12px 18px;font-size:13px;font-weight:600;color:#aaa;background:transparent;border:none;border-bottom:3px solid transparent;margin-bottom:-2px;cursor:pointer;display:flex;align-items:center;gap:7px;font-family:inherit;transition:color .2s,border-color .2s;white-space:nowrap;}
 .tab-btn:hover{color:var(--ap-primary)}
 .tab-btn.active{color:var(--ap-primary);border-bottom-color:var(--ap-primary)}
 
-/* ═══════════════════════════════════════════════
-   CONTENT
-═══════════════════════════════════════════════ */
+/* CONTENT */
 .content{padding:22px 28px}
 .view{display:none}
 .view.active{display:block}
-.sec-title{
-  font-size:13px;font-weight:700;color:var(--ap-primary-dk);
-  margin-bottom:12px;display:flex;align-items:center;gap:8px;
-  text-transform:uppercase;letter-spacing:.5px;
-}
+.sec-title{font-size:13px;font-weight:700;color:var(--ap-primary-dk);margin-bottom:12px;display:flex;align-items:center;gap:8px;text-transform:uppercase;letter-spacing:.5px;}
 .sec-hint{font-size:11px;color:#bbb;font-weight:400;text-transform:none;letter-spacing:0;margin-left:6px}
 
-/* ═══════════════════════════════════════════════
-   ROADMAP TABLE
-═══════════════════════════════════════════════ */
+/* ROADMAP TABLE */
 .tbl-wrap{overflow-x:auto;border-radius:var(--radius);box-shadow:var(--shadow)}
-
 table{width:100%;border-collapse:collapse;background:#fff;font-size:12px}
 thead tr{background:linear-gradient(135deg,var(--ap-primary-dk),var(--ap-primary));color:#fff}
-thead th{
-  padding:10px 12px;text-align:left;
-  font-size:10px;font-weight:700;
-  text-transform:uppercase;letter-spacing:.5px;white-space:nowrap;
-}
-
+thead th{padding:10px 12px;text-align:left;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;white-space:nowrap;}
 tbody tr{border-bottom:1px solid #FDE8ED;transition:background .15s}
 tbody tr:last-child{border-bottom:none}
 tbody tr:hover{background:var(--ap-primary-lt)}
-tbody td{
-  padding:9px 12px;vertical-align:top;
-  outline:none;
-  transition:background .15s;
-}
-tbody td[contenteditable=true]:focus{
-  background:#FFFDE7;
-  box-shadow:inset 0 -2px 0 var(--ap-primary);
-}
+tbody td{padding:9px 12px;vertical-align:top;outline:none;transition:background .15s;}
+tbody td[contenteditable=true]:focus{background:#FFFDE7;box-shadow:inset 0 -2px 0 var(--ap-primary);}
 tbody td.num-col{color:var(--ap-primary);font-weight:800;text-align:center;width:32px}
 
-/* Status badge + dropdown */
+/* STATUS */
 .status-cell{position:relative;cursor:pointer;user-select:none}
-.badge{
-  display:inline-flex;align-items:center;gap:5px;
-  padding:4px 10px;border-radius:20px;
-  font-size:10px;font-weight:700;white-space:nowrap;
-  cursor:pointer;
-}
+.badge{display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:20px;font-size:10px;font-weight:700;white-space:nowrap;cursor:pointer;}
 .b-pending   {background:#FEF9C3;color:#854D0E}
 .b-inprogress{background:var(--ap-primary-bg);color:var(--ap-primary-dk)}
 .b-validating{background:#FFE4E6;color:#9F1239}
 .b-done      {background:var(--ap-green-bg);color:var(--ap-green)}
 .b-blocked   {background:#FEE2E2;color:#991B1B}
-
-.status-menu{
-  position:absolute;top:100%;left:0;z-index:200;
-  background:#fff;border-radius:8px;
-  box-shadow:0 4px 20px rgba(250,52,94,.15);
-  min-width:150px;overflow:hidden;display:none;
-  border:1px solid #F5C6D0;
-}
+.status-menu{position:absolute;top:100%;left:0;z-index:200;background:#fff;border-radius:8px;box-shadow:0 4px 20px rgba(250,52,94,.15);min-width:150px;overflow:hidden;display:none;border:1px solid #F5C6D0;}
 .status-menu.open{display:block}
-.status-opt{
-  padding:8px 14px;font-size:11px;font-weight:600;cursor:pointer;
-  display:flex;align-items:center;gap:7px;
-  transition:background .15s;
-}
+.status-opt{padding:8px 14px;font-size:11px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:7px;transition:background .15s;}
 .status-opt:hover{background:var(--ap-primary-lt)}
-
-/* Action log cell */
 .action-log{font-size:11px;color:#555;min-width:180px}
-.action-line{margin-bottom:3px}
-.action-date{color:var(--ap-primary);font-weight:700}
 .no-action{color:#ccc;font-style:italic}
-
-/* Row controls */
 .row-actions{display:flex;gap:4px;align-items:center}
-.row-btn{
-  width:22px;height:22px;border-radius:4px;border:none;
-  cursor:pointer;font-size:12px;font-weight:700;
-  display:flex;align-items:center;justify-content:center;
-  font-family:inherit;transition:background .2s;
-}
+.row-btn{width:22px;height:22px;border-radius:4px;border:none;cursor:pointer;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;font-family:inherit;transition:background .2s;}
 .row-btn.del{background:#fee2e2;color:#991b1b}
 .row-btn.del:hover{background:#fca5a5}
-
-.tbl-footer{
-  display:flex;gap:10px;align-items:center;margin-top:10px;flex-wrap:wrap;
-}
-.add-btn{
-  padding:7px 16px;background:#fff;
-  border:2px dashed var(--ap-primary);color:var(--ap-primary);
-  border-radius:8px;cursor:pointer;
-  font-size:12px;font-weight:700;font-family:inherit;
-  transition:background .2s;
-}
+.tbl-footer{display:flex;gap:10px;align-items:center;margin-top:10px;flex-wrap:wrap;}
+.add-btn{padding:7px 16px;background:#fff;border:2px dashed var(--ap-primary);color:var(--ap-primary);border-radius:8px;cursor:pointer;font-size:12px;font-weight:700;font-family:inherit;transition:background .2s;}
 .add-btn:hover{background:var(--ap-primary-bg)}
 
-/* ═══════════════════════════════════════════════
-   GANTT
-═══════════════════════════════════════════════ */
-.gantt-toolbar{
-  display:flex;gap:10px;align-items:center;flex-wrap:wrap;
-  margin-bottom:14px;
-}
+/* GANTT */
+.gantt-toolbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:14px;}
 .legend-wrap{display:flex;gap:12px;align-items:center;flex-wrap:wrap;flex:1}
 .leg-item{display:flex;align-items:center;gap:5px;font-size:11px;color:#555;font-weight:500}
 .leg-dot{width:14px;height:10px;border-radius:3px}
-
-.gantt-card{
-  background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);overflow-x:auto;
-}
+.gantt-card{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);overflow-x:auto;}
 .gantt-inner{min-width:660px}
-
-/* header */
 .g-hdr{display:flex;background:linear-gradient(135deg,var(--ap-primary-dk),var(--ap-primary));color:#fff;border-radius:var(--radius) var(--radius) 0 0}
-.g-task-hdr{
-  width:230px;min-width:230px;padding:10px 14px;
-  font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;
-  border-right:1px solid rgba(255,255,255,.2);flex-shrink:0;
-}
+.g-task-hdr{width:230px;min-width:230px;padding:10px 14px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;border-right:1px solid rgba(255,255,255,.2);flex-shrink:0;}
 .g-weeks-hdr{flex:1;display:grid}
-.g-wk{
-  padding:7px 4px;text-align:center;
-  font-size:10px;font-weight:700;
-  border-right:1px solid rgba(255,255,255,.15);
-  line-height:1.3;
-}
+.g-wk{padding:7px 4px;text-align:center;font-size:10px;font-weight:700;border-right:1px solid rgba(255,255,255,.15);line-height:1.3;}
 .g-wk-sub{font-size:8px;opacity:.7}
-
-/* phase row */
-.g-phase-row{
-  display:flex;background:var(--ap-primary-bg);
-  border-bottom:1px solid #F5C6D0;
-}
-.g-phase-lbl{
-  width:230px;min-width:230px;padding:6px 14px;
-  font-size:10px;font-weight:800;color:var(--ap-primary-dk);
-  text-transform:uppercase;letter-spacing:.4px;
-  border-right:1px solid #F5C6D0;flex-shrink:0;
-  display:flex;align-items:center;gap:6px;
-}
+.g-phase-row{display:flex;background:var(--ap-primary-bg);border-bottom:1px solid #F5C6D0;}
+.g-phase-lbl{width:230px;min-width:230px;padding:6px 14px;font-size:10px;font-weight:800;color:var(--ap-primary-dk);text-transform:uppercase;letter-spacing:.4px;border-right:1px solid #F5C6D0;flex-shrink:0;display:flex;align-items:center;gap:6px;}
 .g-phase-grid{flex:1;display:grid}
 .g-phase-cell{border-right:1px solid #F5C6D0}
-
-/* task row */
-.g-row{
-  display:flex;border-bottom:1px solid #FDE8ED;
-  min-height:38px;transition:background .15s;
-}
+.g-row{display:flex;border-bottom:1px solid #FDE8ED;min-height:38px;transition:background .15s;}
 .g-row:last-child{border-bottom:none}
 .g-row:hover{background:var(--ap-primary-lt)}
-.g-task-lbl{
-  width:230px;min-width:230px;padding:0 14px;
-  font-size:11px;color:#333;font-weight:500;
-  border-right:1px solid #FDE8ED;flex-shrink:0;
-  display:flex;align-items:center;gap:7px;
-}
+.g-task-lbl{width:230px;min-width:230px;padding:0 14px;font-size:11px;color:#333;font-weight:500;border-right:1px solid #FDE8ED;flex-shrink:0;display:flex;align-items:center;gap:7px;}
 .g-dot{font-size:9px;flex-shrink:0}
-
 .g-timeline{flex:1;position:relative;overflow:hidden}
 .g-grid{position:absolute;inset:0;display:grid;pointer-events:none}
 .g-grid-cell{border-right:1px solid #FDE8ED}
-
-.g-bar{
-  position:absolute;
-  height:20px;border-radius:4px;
-  top:50%;transform:translateY(-50%);
-  box-shadow:0 2px 6px rgba(250,52,94,.2);
-  display:flex;align-items:center;padding:0 7px;
-  font-size:9px;font-weight:700;color:#fff;
-  overflow:hidden;z-index:2;
-  transition:filter .2s;
-  white-space:nowrap;
-}
+.g-bar{position:absolute;height:20px;border-radius:4px;top:50%;transform:translateY(-50%);box-shadow:0 2px 6px rgba(250,52,94,.2);display:flex;align-items:center;padding:0 7px;font-size:9px;font-weight:700;color:#fff;overflow:hidden;z-index:2;transition:filter .2s;white-space:nowrap;}
 .g-bar:hover{filter:brightness(1.1)}
 .g-bar.done{filter:saturate(.5) brightness(1.1)}
-
-.g-today{
-  position:absolute;top:0;bottom:0;width:2px;
-  background:var(--ap-primary);z-index:5;pointer-events:none;
-}
-.g-today-lbl{
-  position:absolute;top:2px;left:4px;
-  font-size:8px;font-weight:800;color:var(--ap-primary);
-  white-space:nowrap;pointer-events:none;
-}
-
-/* edit gantt panel */
-.gantt-edit-panel{
-  background:#fff;border-radius:var(--radius);
-  box-shadow:var(--shadow);margin-top:14px;padding:18px;
-  display:none;
-}
+.g-today{position:absolute;top:0;bottom:0;width:2px;background:var(--ap-primary);z-index:5;pointer-events:none;}
+.g-today-lbl{position:absolute;top:2px;left:4px;font-size:8px;font-weight:800;color:var(--ap-primary);white-space:nowrap;pointer-events:none;}
+.gantt-edit-panel{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);margin-top:14px;padding:18px;display:none;}
 .gantt-edit-panel.open{display:block}
 .gep-title{font-size:12px;font-weight:700;color:var(--ap-primary-dk);margin-bottom:12px;text-transform:uppercase;letter-spacing:.4px}
 .gep-table{width:100%;border-collapse:collapse;font-size:12px}
 .gep-table th{padding:7px 10px;text-align:left;background:var(--ap-primary-bg);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--ap-primary-dk)}
 .gep-table td{padding:6px 10px;border-bottom:1px solid #FDE8ED}
 .gep-table tr:hover td{background:var(--ap-primary-lt)}
-.gep-inp{
-  border:1.5px solid #F5C6D0;border-radius:5px;
-  padding:4px 8px;font-family:inherit;font-size:11px;
-  outline:none;transition:border-color .2s;
-  background:#fff;
-}
+.gep-inp{border:1.5px solid #F5C6D0;border-radius:5px;padding:4px 8px;font-family:inherit;font-size:11px;outline:none;transition:border-color .2s;background:#fff;}
 .gep-inp:focus{border-color:var(--ap-primary)}
 .gep-inp.num{width:60px;text-align:center}
 .phase-label-gep{font-weight:700;color:var(--ap-primary);font-size:10px;text-transform:uppercase}
 
-/* ═══════════════════════════════════════════════
-   MODAL
-═══════════════════════════════════════════════ */
-.modal-bg{
-  position:fixed;inset:0;background:rgba(42,10,20,.55);
-  z-index:500;display:none;align-items:center;justify-content:center;
-}
+/* MODALS */
+.modal-bg{position:fixed;inset:0;background:rgba(42,10,20,.55);z-index:500;display:none;align-items:center;justify-content:center;}
 .modal-bg.open{display:flex}
-.modal{
-  background:#fff;border-radius:14px;
-  padding:28px;max-width:560px;width:90%;
-  box-shadow:0 8px 40px rgba(250,52,94,.2);
-  position:relative;
-}
+.modal{background:#fff;border-radius:14px;padding:28px;max-width:560px;width:90%;box-shadow:0 8px 40px rgba(250,52,94,.2);position:relative;}
 .modal h3{font-size:15px;font-weight:800;color:var(--ap-primary-dk);margin-bottom:6px}
 .modal p{font-size:12px;color:#666;margin-bottom:16px;line-height:1.6}
-.modal-close{
-  position:absolute;top:16px;right:16px;
-  width:28px;height:28px;border-radius:6px;border:none;
-  background:var(--ap-primary-bg);color:var(--ap-primary-dk);font-size:16px;
-  cursor:pointer;display:flex;align-items:center;justify-content:center;
-  font-family:inherit;font-weight:700;
-}
+.modal-close{position:absolute;top:16px;right:16px;width:28px;height:28px;border-radius:6px;border:none;background:var(--ap-primary-bg);color:var(--ap-primary-dk);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:inherit;font-weight:700;}
 .modal-close:hover{background:#F5C6D0}
-.url-box{
-  background:var(--ap-primary-lt);border:1.5px solid #F5C6D0;border-radius:8px;
-  padding:10px 14px;font-size:11px;font-family:monospace;
-  word-break:break-all;color:#333;margin-bottom:12px;
-  max-height:80px;overflow-y:auto;
-}
+.url-box{background:var(--ap-primary-lt);border:1.5px solid #F5C6D0;border-radius:8px;padding:10px 14px;font-size:11px;font-family:monospace;word-break:break-all;color:#333;margin-bottom:12px;max-height:80px;overflow-y:auto;}
 .modal-actions{display:flex;gap:8px;flex-wrap:wrap}
-.m-btn{
-  padding:8px 18px;border-radius:7px;border:none;
-  font-family:inherit;font-size:12px;font-weight:700;cursor:pointer;
-  transition:background .2s;
-}
+.m-btn{padding:8px 18px;border-radius:7px;border:none;font-family:inherit;font-size:12px;font-weight:700;cursor:pointer;transition:background .2s;}
 .m-btn.primary{background:var(--ap-primary);color:#fff}
 .m-btn.primary:hover{background:var(--ap-primary-dk)}
 .m-btn.blue{background:var(--ap-mid);color:#fff}
 .m-btn.blue:hover{background:var(--ap-dark)}
 .m-btn.ghost{background:var(--ap-primary-bg);color:var(--ap-primary-dk)}
 .m-btn.ghost:hover{background:#F5C6D0}
-
-.drop-zone{
-  border:2px dashed #F5C6D0;border-radius:8px;padding:20px;
-  text-align:center;color:#aaa;font-size:12px;cursor:pointer;
-  transition:border-color .2s,background .2s;margin-bottom:12px;
-}
+.drop-zone{border:2px dashed #F5C6D0;border-radius:8px;padding:20px;text-align:center;color:#aaa;font-size:12px;cursor:pointer;transition:border-color .2s,background .2s;margin-bottom:12px;}
 .drop-zone:hover,.drop-zone.dragover{border-color:var(--ap-primary);background:var(--ap-primary-bg)}
 .drop-zone input[type=file]{display:none}
 
-/* ═══════════════════════════════════════════════
-   TOOLTIP
-═══════════════════════════════════════════════ */
-#tt{
-  position:fixed;pointer-events:none;
-  background:var(--ap-primary-dk);color:#fff;
-  padding:9px 13px;border-radius:8px;font-size:11px;
-  max-width:220px;display:none;z-index:999;
-  box-shadow:0 4px 16px rgba(250,52,94,.25);line-height:1.5;
-  font-family:'Montserrat',sans-serif;
-}
+/* TOOLTIP */
+#tt{position:fixed;pointer-events:none;background:var(--ap-primary-dk);color:#fff;padding:9px 13px;border-radius:8px;font-size:11px;max-width:220px;display:none;z-index:999;box-shadow:0 4px 16px rgba(250,52,94,.25);line-height:1.5;font-family:'Montserrat',sans-serif;}
 #tt strong{display:block;margin-bottom:2px;color:#FFB3C0}
 
-/* ═══════════════════════════════════════════════
-   MISC
-═══════════════════════════════════════════════ */
-.toast{
-  position:fixed;bottom:20px;right:20px;
-  background:var(--ap-primary-dk);color:#fff;
-  padding:10px 18px;border-radius:8px;font-size:12px;font-weight:600;
-  box-shadow:0 4px 16px rgba(250,52,94,.3);z-index:9999;
-  transform:translateY(60px);opacity:0;transition:all .35s;
-  pointer-events:none;
-}
+/* TOAST */
+.toast{position:fixed;bottom:20px;right:20px;background:var(--ap-primary-dk);color:#fff;padding:10px 18px;border-radius:8px;font-size:12px;font-weight:600;box-shadow:0 4px 16px rgba(250,52,94,.3);z-index:9999;transform:translateY(60px);opacity:0;transition:all .35s;pointer-events:none;}
 .toast.show{transform:translateY(0);opacity:1}
 
 @media(max-width:680px){
-  header{padding:14px 16px}
-  .content{padding:14px 16px}
-  .tabs{padding:0 16px}
-  .summary{padding:10px 16px;gap:14px}
-  .topbar{padding:6px 16px}
+  header{padding:14px 16px}.content{padding:14px 16px}
+  .tabs{padding:0 16px}.summary{padding:10px 16px;gap:14px}.topbar{padding:6px 16px}
   .ap-logo img{height:48px}
 }
 </style>
 </head>
 <body>
 
-<!-- ══════════════════════════════════════ TOP ACTION BAR -->
+<!-- TOP BAR -->
 <div class="topbar">
   <strong>Fuerza de Apprecio</strong>
   <span>Panel de Implementación SaaS</span>
@@ -480,11 +203,11 @@ tbody td.num-col{color:var(--ap-primary);font-weight:800;text-align:center;width
   </div>
 </div>
 
-<!-- ══════════════════════════════════════ HEADER -->
+<!-- HEADER -->
 <header>
   <div class="hdr-brand">
     <div class="ap-logo">
-      <img src="https://estudios.apprecio.com/hubfs/logos/Apprecio-logo-rojo.png" alt="Apprecio Logo"/>
+      <img src="https://estudios.apprecio.com/hubfs/logos/Apprecio-logo-rojo.png" alt="Apprecio"/>
       <div class="ap-sub">Reconoce · Fideliza · Premia</div>
     </div>
   </div>
@@ -500,7 +223,7 @@ tbody td.num-col{color:var(--ap-primary);font-weight:800;text-align:center;width
   </div>
 </header>
 
-<!-- ══════════════════════════════════════ SUMMARY BAR -->
+<!-- SUMMARY BAR -->
 <div class="summary">
   <div class="kpi"><span class="num" id="kDone">0</span><span class="lbl">Listas</span></div>
   <div class="divider"></div>
@@ -516,16 +239,16 @@ tbody td.num-col{color:var(--ap-primary);font-weight:800;text-align:center;width
   </div>
 </div>
 
-<!-- ══════════════════════════════════════ TABS -->
+<!-- TABS -->
 <div class="tabs">
   <button class="tab-btn active" onclick="switchTab('roadmap',this)">📋 Roadmap de Seguimiento</button>
   <button class="tab-btn"        onclick="switchTab('gantt',this)">📊 Carta Gantt</button>
 </div>
 
-<!-- ══════════════════════════════════════ CONTENT -->
+<!-- CONTENT -->
 <div class="content">
 
-  <!-- ── ROADMAP ─────────────────────────────────────── -->
+  <!-- ROADMAP -->
   <div id="view-roadmap" class="view active">
     <div class="sec-title">📋 Registro de Seguimiento
       <span class="sec-hint">Haz clic en cualquier celda para editar · Clic en el estado para cambiarlo</span>
@@ -534,18 +257,9 @@ tbody td.num-col{color:var(--ap-primary);font-weight:800;text-align:center;width
       <table>
         <thead>
           <tr>
-            <th>#</th>
-            <th>Solicitante</th>
-            <th>Cargo</th>
-            <th>Área</th>
-            <th>F. Solicitud</th>
-            <th>Descripción</th>
-            <th>Acciones Realizadas</th>
-            <th>F. Entrega</th>
-            <th>Estado</th>
-            <th>Responsable</th>
-            <th>Comentario Extra</th>
-            <th></th>
+            <th>#</th><th>Solicitante</th><th>Cargo</th><th>Área</th>
+            <th>F. Solicitud</th><th>Descripción</th><th>Acciones Realizadas</th>
+            <th>F. Entrega</th><th>Estado</th><th>Responsable</th><th>Comentario Extra</th><th></th>
           </tr>
         </thead>
         <tbody id="roadmapBody"></tbody>
@@ -556,7 +270,7 @@ tbody td.num-col{color:var(--ap-primary);font-weight:800;text-align:center;width
     </div>
   </div>
 
-  <!-- ── GANTT ───────────────────────────────────────── -->
+  <!-- GANTT -->
   <div id="view-gantt" class="view">
     <div class="gantt-toolbar">
       <div class="legend-wrap">
@@ -571,17 +285,15 @@ tbody td.num-col{color:var(--ap-primary);font-weight:800;text-align:center;width
       <button class="tb-btn" onclick="toggleGanttEdit()" style="color:#fff;background:var(--ap-primary);border-color:var(--ap-primary)">✏️ Editar tareas</button>
     </div>
     <div class="gantt-card"><div class="gantt-inner" id="ganttInner"></div></div>
-
-    <!-- Edit panel -->
     <div class="gantt-edit-panel" id="ganttEditPanel">
       <div class="gep-title">✏️ Editor de Tareas — ajusta nombre, semana de inicio y duración</div>
       <div id="gepContent"></div>
     </div>
   </div>
 
-</div><!-- /content -->
+</div>
 
-<!-- ══════════════════════════════════════ MODALS -->
+<!-- MODAL SHARE -->
 <div class="modal-bg" id="shareModal">
   <div class="modal">
     <button class="modal-close" onclick="closeModal('shareModal')">✕</button>
@@ -589,22 +301,23 @@ tbody td.num-col{color:var(--ap-primary);font-weight:800;text-align:center;width
     <p>Elige cómo quieres guardar o compartir la información de este cliente.</p>
     <div class="modal-actions">
       <button class="m-btn primary" onclick="exportJSON()">⬇️ Descargar JSON</button>
-      <button class="m-btn blue"   onclick="copyShareURL()">📋 Copiar URL</button>
-      <button class="m-btn ghost"  onclick="closeModal('shareModal')">Cancelar</button>
+      <button class="m-btn blue"    onclick="copyShareURL()">📋 Copiar URL</button>
+      <button class="m-btn ghost"   onclick="closeModal('shareModal')">Cancelar</button>
     </div>
     <div id="shareURLBox" style="display:none;margin-top:14px">
-      <div style="font-size:11px;font-weight:600;color:#555;margin-bottom:6px">URL generada (contiene todos los datos):</div>
+      <div style="font-size:11px;font-weight:600;color:#555;margin-bottom:6px">URL generada:</div>
       <div class="url-box" id="shareURLText"></div>
-      <div style="font-size:10px;color:#999">⚠️ Esta URL crece con los datos — úsala para compartir o backup.</div>
+      <div style="font-size:10px;color:#999">⚠️ Esta URL crece con los datos — úsala para compartir o como backup.</div>
     </div>
   </div>
 </div>
 
+<!-- MODAL IMPORT -->
 <div class="modal-bg" id="importModal">
   <div class="modal">
     <button class="modal-close" onclick="closeModal('importModal')">✕</button>
     <h3>📂 Cargar datos de un cliente</h3>
-    <p>Arrastra o selecciona el archivo JSON que exportaste anteriormente para cargar los datos del cliente.</p>
+    <p>Arrastra o selecciona el archivo JSON exportado anteriormente.</p>
     <div class="drop-zone" id="dropZone" onclick="document.getElementById('fileInput').click()">
       <div style="font-size:24px;margin-bottom:8px">📁</div>
       <div>Arrastra un archivo <strong>.json</strong> aquí o haz clic para buscar</div>
@@ -618,51 +331,95 @@ tbody td.num-col{color:var(--ap-primary);font-weight:800;text-align:center;width
   </div>
 </div>
 
+<!-- MODAL CREAR SHEET -->
+<div class="modal-bg" id="sheetModal">
+  <div class="modal" style="max-width:420px">
+    <button class="modal-close" onclick="closeModal('sheetModal')">✕</button>
+    <h3 style="margin-bottom:16px">📊 Crear Google Sheet</h3>
+    <div id="sheetModalStatus"></div>
+  </div>
+</div>
+
 <div id="tt"></div>
 <div class="toast" id="toast"></div>
 
-<!-- ══════════════════════════════════════ SCRIPT -->
 <script>
-/* ─────────────────────────────────────────────────────────
+/* ═══════════════════════════════════════════════
+   CONFIG
+═══════════════════════════════════════════════ */
+const N8N_WEBHOOK_URL = 'https://n8n.openip.cl/webhook/fuerza-crear-sheet';
+
+/* ═══════════════════════════════════════════════
    STATE
-───────────────────────────────────────────────────────── */
-let S = {
-  client:    { name:'', startDate:'' },
-  roadmap:   [],
-  ganttPhases: defaultGanttPhases()
-};
+═══════════════════════════════════════════════ */
+let S = { client:{name:'',startDate:''}, roadmap:[], ganttPhases:[] };
 
 function defaultGanttPhases(){
   return [
     { id:1, icon:'📌', name:'Branding e Identidad', color:'#B5179E', tasks:[
-      { name:'Reunión de Kick-off',                         start:1, dur:1, status:'done'       },
-      { name:'Recepción de activos (logo, colores, nombre)',start:1, dur:3, status:'inprogress' },
-      { name:'Identidad visual en plataforma',             start:3, dur:2, status:'pending'    }
+      { name:'Reunión de Kick-off',                          start:1,  dur:1, status:'done'       },
+      { name:'Recepción de activos (logo, colores, nombre)', start:1,  dur:3, status:'inprogress' },
+      { name:'Identidad visual en plataforma',               start:3,  dur:2, status:'pending'    }
     ]},
     { id:2, icon:'⚙️', name:'Configuración del Ambiente Administrador', color:'#FA345E', tasks:[
-      { name:'Creación de ambiente administrador',           start:4, dur:3, status:'inprogress' },
-      { name:'Configuración de accesos y roles',            start:5, dur:3, status:'inprogress' },
-      { name:'Configuración de módulos y reglas',           start:8, dur:4, status:'pending'    },
-      { name:'Carga de estructura organizacional',          start:9, dur:4, status:'pending'    },
-      { name:'Carga masiva de usuarios',                   start:12, dur:3, status:'pending'    }
+      { name:'Creación de ambiente administrador',           start:4,  dur:3, status:'inprogress' },
+      { name:'Configuración de accesos y roles',             start:5,  dur:3, status:'inprogress' },
+      { name:'Configuración de módulos y reglas',            start:8,  dur:4, status:'pending'    },
+      { name:'Carga de estructura organizacional',           start:9,  dur:4, status:'pending'    },
+      { name:'Carga masiva de usuarios',                     start:12, dur:3, status:'pending'    }
     ]},
     { id:3, icon:'🔍', name:'Pruebas y QA', color:'#D42A4E', tasks:[
-      { name:'Prueba de flujos de reconocimiento',         start:15, dur:3, status:'pending' },
-      { name:'Validación con equipo cliente',              start:17, dur:3, status:'pending' },
-      { name:'Ajustes post-validación',                    start:19, dur:3, status:'pending' }
+      { name:'Prueba de flujos de reconocimiento',           start:15, dur:3, status:'pending'    },
+      { name:'Validación con equipo cliente',                start:17, dur:3, status:'pending'    },
+      { name:'Ajustes post-validación',                      start:19, dur:3, status:'pending'    }
     ]},
     { id:4, icon:'🎓', name:'Capacitación', color:'#065F46', tasks:[
-      { name:'Envío de checklist al cliente',              start:21, dur:2, status:'pending' },
-      { name:'Carga de checklist en ambiente',             start:22, dur:2, status:'pending' },
-      { name:'Capacitación — Usuario Administrador',       start:24, dur:2, status:'pending' },
-      { name:'Capacitación — Usuarios APO / Gestores',     start:26, dur:3, status:'pending' },
-      { name:'Entrega de manuales y materiales',           start:28, dur:2, status:'pending' }
+      { name:'Envío de checklist al cliente',                start:21, dur:2, status:'pending'    },
+      { name:'Carga de checklist en ambiente',               start:22, dur:2, status:'pending'    },
+      { name:'Capacitación — Usuario Administrador',         start:24, dur:2, status:'pending'    },
+      { name:'Capacitación — Usuarios APO / Gestores',       start:26, dur:3, status:'pending'    },
+      { name:'Entrega de manuales y materiales',             start:28, dur:2, status:'pending'    }
     ]},
     { id:5, icon:'🚀', name:'Go-Live y Seguimiento', color:'#9F1239', tasks:[
-      { name:'Comunicación interna de lanzamiento',        start:29, dur:3, status:'pending' },
-      { name:'Activación oficial de la plataforma',        start:32, dur:1, status:'pending' },
-      { name:'Soporte y seguimiento post-lanzamiento',     start:32, dur:4, status:'pending' }
+      { name:'Comunicación interna de lanzamiento',          start:29, dur:3, status:'pending'    },
+      { name:'Activación oficial de la plataforma',          start:32, dur:1, status:'pending'    },
+      { name:'Soporte y seguimiento post-lanzamiento',       start:32, dur:4, status:'pending'    }
     ]}
+  ];
+}
+
+function defaultRoadmapRows(){
+  return [
+    { id:1, solicitante:'María González', cargo:'Jefa de RRHH', area:'Gestión de Personas',
+      fechaSol:'22/04/2026',
+      desc:'Configuración inicial: ambiente administrador, accesos y branding de la plataforma.',
+      acciones:'22/04: Reunión de kick-off realizada. Se definieron responsables y plazos.\n23/04: Solicitud de activos (logo, colores, nombre) enviada al cliente.',
+      fechaEnt:'30/04/2026', estado:'inprogress', responsable:'Equipo Apprecio',
+      comentario:'Pendiente logo en alta resolución (mínimo 300px).' },
+    { id:2, solicitante:'Carlos Ríos', cargo:'Analista TI', area:'Tecnología',
+      fechaSol:'23/04/2026',
+      desc:'Carga masiva de usuarios y definición de estructura organizacional (áreas, cargos, centros de costo).',
+      acciones:'24/04: Plantilla de carga enviada al cliente.\n25/04: En espera de respuesta con datos validados.',
+      fechaEnt:'07/05/2026', estado:'pending', responsable:'Apprecio + TI Cliente',
+      comentario:'Requiere validación de base de datos RRHH antes de cargar.' },
+    { id:3, solicitante:'Pedro Núñez', cargo:'Jefe TI', area:'Tecnología',
+      fechaSol:'22/04/2026',
+      desc:'Exportación de datos de nómina para carga inicial de colaboradores en plataforma.',
+      acciones:'22/04: Levantamiento técnico completado. Formato de exportación definido.\n24/04: Cliente aún no comparte archivo de nómina.',
+      fechaEnt:'12/05/2026', estado:'blocked', responsable:'TI Cliente + Apprecio',
+      comentario:'⚠️ Bloqueado: cliente no ha compartido el archivo de exportación de nómina.' },
+    { id:4, solicitante:'Ana Soto', cargo:'Gerenta de Personas', area:'Gestión de Personas',
+      fechaSol:'24/04/2026',
+      desc:'Definición de reglas de reconocimiento: categorías, montos y flujos de aprobación.',
+      acciones:'24/04: Reunión de levantamiento de reglas realizada.',
+      fechaEnt:'15/05/2026', estado:'pending', responsable:'Equipo Apprecio',
+      comentario:'Cliente debe validar montos de premiación con gerencia.' },
+    { id:5, solicitante:'Equipo Apprecio', cargo:'-', area:'Capacitación',
+      fechaSol:'25/04/2026',
+      desc:'Capacitación a usuarios administradores y APO (Agentes de Premio y Onboarding).',
+      acciones:'25/04: Agenda de capacitación enviada al cliente.',
+      fechaEnt:'28/05/2026', estado:'pending', responsable:'Equipo Apprecio',
+      comentario:'Confirmar asistentes y sala de capacitación.' }
   ];
 }
 
@@ -675,115 +432,77 @@ function defaultRoadmapRow(id){
   };
 }
 
-/* ─────────────────────────────────────────────────────────
+/* ═══════════════════════════════════════════════
    INIT
-───────────────────────────────────────────────────────── */
-(function init(){
+═══════════════════════════════════════════════ */
+document.addEventListener("DOMContentLoaded", function init(){
   const params = new URLSearchParams(window.location.search);
-
   if(params.has('data')){
     try{ S = JSON.parse(atob(params.get('data'))); }catch(e){}
   } else {
     const keys = Object.keys(localStorage).filter(k => k.startsWith('ap_client_'));
-    if(keys.length === 1){
-      try{ S = JSON.parse(localStorage.getItem(keys[0])); }catch(e){}
-    }
+    if(keys.length === 1){ try{ S = JSON.parse(localStorage.getItem(keys[0])); }catch(e){} }
   }
+  if(!S.roadmap    || S.roadmap.length    === 0) S.roadmap    = defaultRoadmapRows();
+  if(!S.ganttPhases|| S.ganttPhases.length === 0) S.ganttPhases = defaultGanttPhases();
+  if(!S.client) S.client = {name:'',startDate:''};
 
-  if(!S.roadmap || S.roadmap.length === 0){
-    S.roadmap = [
-      { id:1, solicitante:'María González', cargo:'Jefa de RRHH', area:'Gestión de Personas',
-        fechaSol:'22/04/2026', desc:'Configuración inicial: ambiente administrador, accesos y branding de la plataforma.',
-        acciones:'22/04: Reunión de kick-off realizada. Se definieron responsables y plazos.\n23/04: Solicitud de activos (logo, colores, nombre) enviada al cliente.',
-        fechaEnt:'30/04/2026', estado:'inprogress', responsable:'Equipo Apprecio',
-        comentario:'Pendiente logo en alta resolución (mínimo 300px).' },
-      { id:2, solicitante:'Carlos Ríos', cargo:'Analista TI', area:'Tecnología',
-        fechaSol:'23/04/2026', desc:'Carga masiva de usuarios y definición de estructura organizacional (áreas, cargos, centros de costo).',
-        acciones:'24/04: Plantilla de carga enviada al cliente.\n25/04: En espera de respuesta con datos validados.',
-        fechaEnt:'07/05/2026', estado:'pending', responsable:'Apprecio + TI Cliente',
-        comentario:'Requiere validación de base de datos RRHH antes de cargar.' },
-      { id:3, solicitante:'Pedro Núñez', cargo:'Jefe TI', area:'Tecnología',
-        fechaSol:'22/04/2026', desc:'Exportación de datos de nómina para carga inicial de colaboradores en plataforma.',
-        acciones:'22/04: Levantamiento técnico completado. Formato de exportación definido.\n24/04: Cliente aún no comparte archivo de nómina.',
-        fechaEnt:'12/05/2026', estado:'blocked', responsable:'TI Cliente + Apprecio',
-        comentario:'⚠️ Bloqueado: cliente no ha compartido el archivo de exportación de nómina.' },
-      { id:4, solicitante:'Ana Soto', cargo:'Gerenta de Personas', area:'Gestión de Personas',
-        fechaSol:'24/04/2026', desc:'Definición de reglas de reconocimiento: categorías, montos, flujos de aprobación.',
-        acciones:'24/04: Reunión de levantamiento de reglas realizada.',
-        fechaEnt:'15/05/2026', estado:'pending', responsable:'Equipo Apprecio',
-        comentario:'Cliente debe validar montos de premiación con gerencia.' },
-      { id:5, solicitante:'Equipo Apprecio', cargo:'-', area:'Capacitación',
-        fechaSol:'25/04/2026', desc:'Capacitación a usuarios administradores y APO (Agentes de Premio y Onboarding).',
-        acciones:'25/04: Agenda de capacitación enviada al cliente.',
-        fechaEnt:'28/05/2026', estado:'pending', responsable:'Equipo Apprecio',
-        comentario:'Confirmar asistentes y sala de capacitación.' }
-    ];
-  }
-
-  if(!S.ganttPhases){ S.ganttPhases = defaultGanttPhases(); }
-  if(!S.client){ S.client = { name:'', startDate:'' }; }
-
-  document.getElementById('clientName').value = S.client.name  || '';
+  document.getElementById('clientName').value = S.client.name      || '';
   document.getElementById('startDate').value  = S.client.startDate || '2026-04-22';
 
   renderRoadmap();
   renderGantt();
   updateKPIs();
-})();
+});
 
-/* ─────────────────────────────────────────────────────────
+/* ═══════════════════════════════════════════════
    TABS
-───────────────────────────────────────────────────────── */
+═══════════════════════════════════════════════ */
 function switchTab(name, btn){
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
   document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
   btn.classList.add('active');
-  document.getElementById('view-' + name).classList.add('active');
+  document.getElementById('view-'+name).classList.add('active');
 }
 
-/* ─────────────────────────────────────────────────────────
+/* ═══════════════════════════════════════════════
    KPIs
-───────────────────────────────────────────────────────── */
+═══════════════════════════════════════════════ */
 function updateKPIs(){
-  const c = {done:0,inprogress:0,validating:0,blocked:0,pending:0};
-  S.roadmap.forEach(r => { c[r.estado] = (c[r.estado]||0)+1; });
-  const total = S.roadmap.length;
-  const done  = c.done;
-  const prog  = c.inprogress + c.validating;
-  const blk   = c.blocked;
-  const pct   = total ? Math.round(done/total*100) : 0;
+  const c={done:0,inprogress:0,validating:0,blocked:0,pending:0};
+  S.roadmap.forEach(r=>{ c[r.estado]=(c[r.estado]||0)+1; });
+  const total=S.roadmap.length, done=c.done, prog=c.inprogress+c.validating, blk=c.blocked;
+  const pct=total?Math.round(done/total*100):0;
   document.getElementById('kDone').textContent  = done;
   document.getElementById('kProg').textContent  = prog;
   document.getElementById('kBlock').textContent = blk;
   document.getElementById('kTotal').textContent = total;
-  document.getElementById('pFill').style.width  = pct + '%';
-  document.getElementById('pPct').textContent   = pct + '%';
+  document.getElementById('pFill').style.width  = pct+'%';
+  document.getElementById('pPct').textContent   = pct+'%';
 }
 
-/* ─────────────────────────────────────────────────────────
-   STATUS CONFIG
-───────────────────────────────────────────────────────── */
+/* ═══════════════════════════════════════════════
+   STATUS
+═══════════════════════════════════════════════ */
 const STATUS = {
-  pending:    { cls:'b-pending',    label:'⏳ Pendiente',   dot:'○', dc:'#9CA3AF' },
-  inprogress: { cls:'b-inprogress', label:'🔵 En Proceso',  dot:'●', dc:'#FA345E' },
-  validating: { cls:'b-validating', label:'🟠 Validando',   dot:'●', dc:'#D42A4E' },
-  done:       { cls:'b-done',       label:'✅ Finalizado',  dot:'✓', dc:'#065F46' },
-  blocked:    { cls:'b-blocked',    label:'🔴 Bloqueado',   dot:'✕', dc:'#DC2626' }
+  pending:    {cls:'b-pending',    label:'⏳ Pendiente',  dot:'○', dc:'#9CA3AF'},
+  inprogress: {cls:'b-inprogress', label:'🔵 En Proceso', dot:'●', dc:'#FA345E'},
+  validating: {cls:'b-validating', label:'🟠 Validando',  dot:'●', dc:'#D42A4E'},
+  done:       {cls:'b-done',       label:'✅ Finalizado', dot:'✓', dc:'#065F46'},
+  blocked:    {cls:'b-blocked',    label:'🔴 Bloqueado',  dot:'✕', dc:'#DC2626'}
 };
 const STATUS_ORDER = ['pending','inprogress','validating','done','blocked'];
 
-/* ─────────────────────────────────────────────────────────
+/* ═══════════════════════════════════════════════
    ROADMAP RENDER
-───────────────────────────────────────────────────────── */
+═══════════════════════════════════════════════ */
 function renderRoadmap(){
   const tbody = document.getElementById('roadmapBody');
   tbody.innerHTML = '';
-
   S.roadmap.forEach((row, idx) => {
     const st = STATUS[row.estado] || STATUS.pending;
     const tr = document.createElement('tr');
     tr.dataset.idx = idx;
-
     tr.innerHTML = `
       <td class="num-col">${row.id}</td>
       <td contenteditable="true" data-field="solicitante">${esc(row.solicitante)}</td>
@@ -796,171 +515,112 @@ function renderRoadmap(){
       <td class="status-cell" data-idx="${idx}">
         <span class="badge ${st.cls}">${st.label}</span>
         <div class="status-menu" id="smenu-${idx}">
-          ${STATUS_ORDER.map(s =>
-            `<div class="status-opt" onclick="setStatus(${idx},'${s}')">
-              <span class="badge ${STATUS[s].cls}">${STATUS[s].label}</span>
-            </div>`
-          ).join('')}
+          ${STATUS_ORDER.map(s=>`<div class="status-opt" onclick="setStatus(${idx},'${s}')"><span class="badge ${STATUS[s].cls}">${STATUS[s].label}</span></div>`).join('')}
         </div>
       </td>
       <td contenteditable="true" data-field="responsable" style="min-width:130px">${esc(row.responsable)}</td>
       <td contenteditable="true" data-field="comentario" style="min-width:140px;color:#666">${esc(row.comentario)}</td>
-      <td>
-        <div class="row-actions">
-          <button class="row-btn del" onclick="deleteRow(${idx})" title="Eliminar">✕</button>
-        </div>
-      </td>
-    `;
+      <td><div class="row-actions"><button class="row-btn del" title="Eliminar" onclick="deleteRow(${idx})">✕</button></div></td>`;
 
     tr.querySelectorAll('[contenteditable]').forEach(cell => {
-      cell.addEventListener('blur', () => {
-        const field = cell.dataset.field;
-        if(field) {
-          S.roadmap[idx][field] = cell.innerText.trim();
-          autoSaveQuiet();
-          updateKPIs();
-        }
+      cell.addEventListener('blur', ()=>{
+        const f=cell.dataset.field;
+        if(f){ S.roadmap[idx][f]=cell.innerText.trim(); autoSaveQuiet(); updateKPIs(); }
       });
     });
-
-    tr.querySelector('.status-cell').addEventListener('click', e => {
+    tr.querySelector('.status-cell').addEventListener('click', e=>{
       e.stopPropagation();
-      const menu = document.getElementById('smenu-'+idx);
-      document.querySelectorAll('.status-menu.open').forEach(m => {
-        if(m !== menu) m.classList.remove('open');
-      });
+      const menu=document.getElementById('smenu-'+idx);
+      document.querySelectorAll('.status-menu.open').forEach(m=>{ if(m!==menu) m.classList.remove('open'); });
       menu.classList.toggle('open');
     });
-
     tbody.appendChild(tr);
   });
 }
 
-document.addEventListener('click', () => {
-  document.querySelectorAll('.status-menu.open').forEach(m => m.classList.remove('open'));
-});
+document.addEventListener('click', ()=>{ document.querySelectorAll('.status-menu.open').forEach(m=>m.classList.remove('open')); });
 
 function setStatus(idx, status){
   S.roadmap[idx].estado = status;
-  document.querySelectorAll('.status-menu.open').forEach(m => m.classList.remove('open'));
-  renderRoadmap();
-  updateKPIs();
-  autoSaveQuiet();
+  document.querySelectorAll('.status-menu.open').forEach(m=>m.classList.remove('open'));
+  renderRoadmap(); updateKPIs(); autoSaveQuiet();
 }
 
 function addRow(){
-  // Asegurar que la pestaña Roadmap está activa
-  const roadmapBtn = document.querySelector('.tab-btn');
-  if(roadmapBtn && !document.getElementById('view-roadmap').classList.contains('active')){
-    switchTab('roadmap', roadmapBtn);
-  }
-  const id = S.roadmap.length ? Math.max(...S.roadmap.map(r=>r.id)) + 1 : 1;
+  const id = S.roadmap.length ? Math.max(...S.roadmap.map(r=>r.id))+1 : 1;
   S.roadmap.push(defaultRoadmapRow(id));
   renderRoadmap();
   updateKPIs();
   autoSaveQuiet();
-  // Scroll al final de la tabla después de render
-  setTimeout(() => {
+  setTimeout(()=>{
     const wrap = document.querySelector('.tbl-wrap');
     if(wrap) wrap.scrollTop = wrap.scrollHeight;
-  }, 50);
+  }, 60);
 }
 
 function deleteRow(idx){
   if(!confirm('¿Eliminar esta fila?')) return;
-  S.roadmap.splice(idx, 1);
-  S.roadmap.forEach((r,i) => r.id = i+1);
-  renderRoadmap();
-  updateKPIs();
-  autoSaveQuiet();
+  S.roadmap.splice(idx,1);
+  S.roadmap.forEach((r,i)=>r.id=i+1);
+  renderRoadmap(); updateKPIs(); autoSaveQuiet();
 }
 
 function esc(str){
   if(!str) return '';
-  return String(str)
-    .replace(/&/g,'&amp;')
-    .replace(/</g,'&lt;')
-    .replace(/>/g,'&gt;');
+  return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
 
-/* ─────────────────────────────────────────────────────────
+/* ═══════════════════════════════════════════════
    GANTT RENDER
-───────────────────────────────────────────────────────── */
-const NUM_WEEKS = 7;
-const TOTAL_CAL = NUM_WEEKS * 7;
-
-function workToCalPct(workDay){
-  return ((workDay - 1) * 7 / 5) / TOTAL_CAL * 100;
-}
-function durToCalPct(durWork){
-  return (durWork * 7 / 5) / TOTAL_CAL * 100;
-}
+═══════════════════════════════════════════════ */
+const NUM_WEEKS=7, TOTAL_CAL=NUM_WEEKS*7;
+function workToCalPct(w){ return ((w-1)*7/5)/TOTAL_CAL*100; }
+function durToCalPct(d){  return (d*7/5)/TOTAL_CAL*100; }
 
 function renderGantt(){
   const inner = document.getElementById('ganttInner');
   const sd    = new Date(document.getElementById('startDate').value || '2026-04-22');
-  const today = new Date('2026-04-15');
-  const todayOff = (today - sd) / (1000*60*60*24);
-  const todayPct = (todayOff / TOTAL_CAL * 100).toFixed(2);
-  const wkGrid   = `grid-template-columns:repeat(${NUM_WEEKS},1fr)`;
+  const today = new Date();
+  const todayPct = ((today-sd)/(1000*60*60*24)/TOTAL_CAL*100).toFixed(2);
+  const wkGrid = `grid-template-columns:repeat(${NUM_WEEKS},1fr)`;
   let html = '';
 
   html += `<div class="g-hdr"><div class="g-task-hdr">Tarea</div><div class="g-weeks-hdr" style="${wkGrid}">`;
   for(let w=0;w<NUM_WEEKS;w++){
-    const d = new Date(sd); d.setDate(d.getDate() + w*7);
+    const d=new Date(sd); d.setDate(d.getDate()+w*7);
     html += `<div class="g-wk">Sem ${w+1}<br><span class="g-wk-sub">${fmt(d)}</span></div>`;
   }
   html += `</div></div>`;
 
-  S.ganttPhases.forEach(phase => {
+  S.ganttPhases.forEach(phase=>{
     html += `<div class="g-phase-row">
       <div class="g-phase-lbl">${phase.icon} ${phase.name}</div>
-      <div class="g-phase-grid" style="${wkGrid}">
-        ${Array(NUM_WEEKS).fill('<div class="g-phase-cell"></div>').join('')}
-      </div>
+      <div class="g-phase-grid" style="${wkGrid}">${Array(NUM_WEEKS).fill('<div class="g-phase-cell"></div>').join('')}</div>
     </div>`;
-
-    phase.tasks.forEach(task => {
-      const st    = STATUS[task.status] || STATUS.pending;
-      const lPct  = workToCalPct(task.start).toFixed(2);
-      const wPct  = Math.max(1.5, durToCalPct(task.dur)).toFixed(2);
-      const isDone = task.status==='done';
-
+    phase.tasks.forEach(task=>{
+      const st=STATUS[task.status]||STATUS.pending;
+      const lPct=workToCalPct(task.start).toFixed(2);
+      const wPct=Math.max(1.5,durToCalPct(task.dur)).toFixed(2);
       html += `
-        <div class="g-row"
-             onmouseover="showTT(event,'${esc(task.name)}',${task.start},${task.start+task.dur-1},'${task.status}')"
-             onmouseout="hideTT()">
-          <div class="g-task-lbl">
-            <span class="g-dot" style="color:${st.dc}">${st.dot}</span>
-            <span>${esc(task.name)}</span>
-          </div>
+        <div class="g-row" onmouseover="showTT(event,'${esc(task.name)}',${task.start},${task.start+task.dur-1},'${task.status}')" onmouseout="hideTT()">
+          <div class="g-task-lbl"><span class="g-dot" style="color:${st.dc}">${st.dot}</span><span>${esc(task.name)}</span></div>
           <div class="g-timeline">
-            <div class="g-grid" style="${wkGrid}">
-              ${Array(NUM_WEEKS).fill('<div class="g-grid-cell"></div>').join('')}
-            </div>
-            ${(todayPct>=0&&todayPct<=100)?`
-              <div class="g-today" style="left:${todayPct}%">
-                <span class="g-today-lbl">Hoy</span>
-              </div>`:''}
-            <div class="g-bar${isDone?' done':''}"
-                 style="left:${lPct}%;width:${wPct}%;background:${phase.color}">
-            </div>
+            <div class="g-grid" style="${wkGrid}">${Array(NUM_WEEKS).fill('<div class="g-grid-cell"></div>').join('')}</div>
+            ${(todayPct>=0&&todayPct<=100)?`<div class="g-today" style="left:${todayPct}%"><span class="g-today-lbl">Hoy</span></div>`:''}
+            <div class="g-bar${task.status==='done'?' done':''}" style="left:${lPct}%;width:${wPct}%;background:${phase.color}"></div>
           </div>
         </div>`;
     });
   });
 
   inner.innerHTML = html;
-  renderGanttEdit();
 }
 
-function fmt(d){
-  return d.toLocaleDateString('es-CL',{day:'2-digit',month:'short'});
-}
+function fmt(d){ return d.toLocaleDateString('es-CL',{day:'2-digit',month:'short'}); }
 
-/* ─────────────────────────────────────────────────────────
+/* ═══════════════════════════════════════════════
    GANTT EDIT PANEL
-───────────────────────────────────────────────────────── */
+═══════════════════════════════════════════════ */
 let ganttEditOpen = false;
 
 function toggleGanttEdit(){
@@ -973,297 +633,208 @@ function toggleGanttEdit(){
 function renderGanttEdit(){
   const el = document.getElementById('gepContent');
   let html = '';
-
-  S.ganttPhases.forEach((phase, pi) => {
-    html += `<div style="margin-bottom:12px">
-      <div class="phase-label-gep" style="color:${phase.color};margin-bottom:6px">
-        ${phase.icon} ${phase.name}
-      </div>
+  S.ganttPhases.forEach((phase,pi)=>{
+    html += `<div style="margin-bottom:16px">
+      <div class="phase-label-gep" style="color:${phase.color};margin-bottom:6px">${phase.icon} ${phase.name}</div>
       <table class="gep-table">
-        <tr>
-          <th style="width:40%">Tarea</th>
-          <th>Inicio (sem)</th>
-          <th>Dur. (sem)</th>
-          <th>Estado</th>
-        </tr>`;
-
-    phase.tasks.forEach((task, ti) => {
+        <tr><th style="width:40%">Tarea</th><th>Inicio (sem)</th><th>Dur. (sem)</th><th>Estado</th></tr>`;
+    phase.tasks.forEach((task,ti)=>{
       html += `<tr>
-        <td><input class="gep-inp" style="width:100%" value="${esc(task.name)}"
-             onchange="updateGanttTask(${pi},${ti},'name',this.value)"/></td>
-        <td><input class="gep-inp num" type="number" min="1" max="35" value="${task.start}"
-             onchange="updateGanttTask(${pi},${ti},'start',+this.value)"/></td>
-        <td><input class="gep-inp num" type="number" min="1" max="15" value="${task.dur}"
-             onchange="updateGanttTask(${pi},${ti},'dur',+this.value)"/></td>
-        <td>
-          <select class="gep-inp" onchange="updateGanttTask(${pi},${ti},'status',this.value)">
-            ${STATUS_ORDER.map(s =>
-              `<option value="${s}" ${task.status===s?'selected':''}>${STATUS[s].label}</option>`
-            ).join('')}
-          </select>
-        </td>
+        <td><input class="gep-inp" style="width:100%" value="${esc(task.name)}" onchange="updateGanttTask(${pi},${ti},'name',this.value)"/></td>
+        <td><input class="gep-inp num" type="number" min="1" max="35" value="${task.start}" onchange="updateGanttTask(${pi},${ti},'start',+this.value)"/></td>
+        <td><input class="gep-inp num" type="number" min="1" max="20" value="${task.dur}" onchange="updateGanttTask(${pi},${ti},'dur',+this.value)"/></td>
+        <td><select class="gep-inp" onchange="updateGanttTask(${pi},${ti},'status',this.value)">
+          ${STATUS_ORDER.map(s=>`<option value="${s}" ${task.status===s?'selected':''}>${STATUS[s].label}</option>`).join('')}
+        </select></td>
       </tr>`;
     });
     html += `</table></div>`;
   });
-
   el.innerHTML = html;
 }
 
-function updateGanttTask(pi, ti, field, val){
-  S.ganttPhases[pi].tasks[ti][field] = val;
+function updateGanttTask(pi,ti,field,val){
+  S.ganttPhases[pi].tasks[ti][field]=val;
   renderGantt();
   autoSaveQuiet();
 }
 
-/* ─────────────────────────────────────────────────────────
+/* ═══════════════════════════════════════════════
    TOOLTIP
-───────────────────────────────────────────────────────── */
-function showTT(e, name, s, end, status){
-  const tt  = document.getElementById('tt');
-  const st  = STATUS[status] || STATUS.pending;
-  const sd  = new Date(document.getElementById('startDate').value || '2026-04-22');
-  const sD  = new Date(sd); sD.setDate(sD.getDate() + Math.ceil((s-1)*7/5));
-  const eD  = new Date(sd); eD.setDate(eD.getDate() + Math.ceil(end*7/5));
-  tt.innerHTML = `<strong>${name}</strong>${fmt(sD)} → ${fmt(eD)}<br>${st.label}`;
-  tt.style.display = 'block';
-  moveTT(e);
+═══════════════════════════════════════════════ */
+function showTT(e,name,s,end,status){
+  const tt=document.getElementById('tt');
+  const st=STATUS[status]||STATUS.pending;
+  const sd=new Date(document.getElementById('startDate').value||'2026-04-22');
+  const sD=new Date(sd); sD.setDate(sD.getDate()+Math.ceil((s-1)*7/5));
+  const eD=new Date(sd); eD.setDate(eD.getDate()+Math.ceil(end*7/5));
+  tt.innerHTML=`<strong>${name}</strong>${fmt(sD)} → ${fmt(eD)}<br>${st.label}`;
+  tt.style.display='block'; moveTT(e);
 }
 function hideTT(){ document.getElementById('tt').style.display='none'; }
-function moveTT(e){
-  const tt = document.getElementById('tt');
-  tt.style.left = (e.clientX+14)+'px';
-  tt.style.top  = (e.clientY-10)+'px';
-}
-document.addEventListener('mousemove', e => {
-  if(document.getElementById('tt').style.display==='block') moveTT(e);
-});
+function moveTT(e){ const tt=document.getElementById('tt'); tt.style.left=(e.clientX+14)+'px'; tt.style.top=(e.clientY-10)+'px'; }
+document.addEventListener('mousemove', e=>{ if(document.getElementById('tt').style.display==='block') moveTT(e); });
 
-/* ─────────────────────────────────────────────────────────
-   CLIENT CHANGE
-───────────────────────────────────────────────────────── */
-function onClientChange(){
-  S.client.name = document.getElementById('clientName').value;
-  markUnsaved();
-}
-function onStartDateChange(){
-  S.client.startDate = document.getElementById('startDate').value;
-  renderGantt();
-  markUnsaved();
-}
+/* ═══════════════════════════════════════════════
+   CLIENT
+═══════════════════════════════════════════════ */
+function onClientChange(){ S.client.name=document.getElementById('clientName').value; markUnsaved(); }
+function onStartDateChange(){ S.client.startDate=document.getElementById('startDate').value; renderGantt(); markUnsaved(); }
 
-/* ─────────────────────────────────────────────────────────
+/* ═══════════════════════════════════════════════
    SAVE / LOAD
-───────────────────────────────────────────────────────── */
+═══════════════════════════════════════════════ */
 function saveToLocal(){
-  const key = 'ap_client_' + (S.client.name || 'sin_nombre');
-  localStorage.setItem(key, JSON.stringify(S));
+  const key='ap_client_'+(S.client.name||'sin_nombre');
+  localStorage.setItem(key,JSON.stringify(S));
   showToast('💾 Guardado localmente');
-  document.getElementById('saveStatus').textContent = '● Guardado';
-  document.getElementById('saveStatus').style.color = '#6ee7b7';
+  document.getElementById('saveStatus').textContent='● Guardado';
+  document.getElementById('saveStatus').style.color='#6ee7b7';
 }
-
 function autoSaveQuiet(){
-  const key = 'ap_client_' + (S.client.name || 'sin_nombre');
-  localStorage.setItem(key, JSON.stringify(S));
+  const key='ap_client_'+(S.client.name||'sin_nombre');
+  localStorage.setItem(key,JSON.stringify(S));
 }
-
 function markUnsaved(){
-  document.getElementById('saveStatus').textContent = '○ Sin guardar';
-  document.getElementById('saveStatus').style.color = '#FCA5A5';
+  document.getElementById('saveStatus').textContent='○ Sin guardar';
+  document.getElementById('saveStatus').style.color='#FCA5A5';
 }
-
 function exportJSON(){
-  const name = S.client.name || 'cliente';
-  const blob = new Blob([JSON.stringify(S, null, 2)], {type:'application/json'});
-  const a    = document.createElement('a');
-  a.href     = URL.createObjectURL(blob);
-  a.download = 'apprecio_' + name.replace(/\s+/g,'_').toLowerCase() + '.json';
-  a.click();
+  const name=S.client.name||'cliente';
+  const blob=new Blob([JSON.stringify(S,null,2)],{type:'application/json'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob);
+  a.download='apprecio_'+name.replace(/\s+/g,'_').toLowerCase()+'.json'; a.click();
   showToast('⬇️ JSON descargado');
 }
-
 function copyShareURL(){
-  const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(S))));
-  const url     = location.origin + location.pathname + '?data=' + encoded;
-  document.getElementById('shareURLText').textContent = url;
-  document.getElementById('shareURLBox').style.display = 'block';
-  navigator.clipboard.writeText(url).then(() => showToast('📋 URL copiada'));
+  const encoded=btoa(unescape(encodeURIComponent(JSON.stringify(S))));
+  const url=location.origin+location.pathname+'?data='+encoded;
+  document.getElementById('shareURLText').textContent=url;
+  document.getElementById('shareURLBox').style.display='block';
+  navigator.clipboard.writeText(url).then(()=>showToast('📋 URL copiada'));
 }
-
 function loadJSONFile(e){
-  const file = e.target.files[0];
-  if(!file) return;
-  const reader = new FileReader();
-  reader.onload = function(ev){
+  const file=e.target.files[0]; if(!file) return;
+  const reader=new FileReader();
+  reader.onload=function(ev){
     try{
-      S = JSON.parse(ev.target.result);
-      document.getElementById('clientName').value = S.client?.name || '';
-      document.getElementById('startDate').value  = S.client?.startDate || '2026-04-22';
-      renderRoadmap();
-      renderGantt();
-      updateKPIs();
+      S=JSON.parse(ev.target.result);
+      document.getElementById('clientName').value=S.client?.name||'';
+      document.getElementById('startDate').value=S.client?.startDate||'2026-04-22';
+      renderRoadmap(); renderGantt(); updateKPIs();
       closeModal('importModal');
-      showToast('✅ Cliente cargado: ' + (S.client?.name || ''));
-    }catch(err){
-      showToast('❌ Error al leer el archivo JSON');
-    }
+      showToast('✅ Cliente cargado: '+(S.client?.name||''));
+    }catch(err){ showToast('❌ Error al leer el archivo JSON'); }
   };
   reader.readAsText(file);
 }
-
 function loadSavedClients(){
-  const keys = Object.keys(localStorage).filter(k => k.startsWith('ap_client_'));
-  const el   = document.getElementById('savedClientsList');
-  if(!keys.length){
-    el.style.display = 'block';
-    el.innerHTML = '<div style="font-size:12px;color:#999">No hay clientes guardados localmente.</div>';
-    return;
-  }
-  el.style.display = 'block';
-  el.innerHTML = `<div style="font-size:11px;font-weight:700;color:#555;margin-bottom:8px">Clientes guardados:</div>`
-    + keys.map(k => {
-        const data = JSON.parse(localStorage.getItem(k));
-        const name = data?.client?.name || k.replace('ap_client_','');
-        return `<div style="display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid #FDE8ED">
-          <span style="font-size:12px;font-weight:600">${name}</span>
-          <div style="display:flex;gap:6px">
-            <button class="m-btn ghost" style="padding:4px 10px;font-size:11px" onclick="loadFromStorage('${k}')">Cargar</button>
-            <button class="m-btn" style="padding:4px 10px;font-size:11px;background:#fee2e2;color:#991b1b" onclick="deleteStorage('${k}')">Borrar</button>
-          </div>
-        </div>`;
-      }).join('');
+  const keys=Object.keys(localStorage).filter(k=>k.startsWith('ap_client_'));
+  const el=document.getElementById('savedClientsList');
+  if(!keys.length){ el.style.display='block'; el.innerHTML='<div style="font-size:12px;color:#999">No hay clientes guardados localmente.</div>'; return; }
+  el.style.display='block';
+  el.innerHTML=`<div style="font-size:11px;font-weight:700;color:#555;margin-bottom:8px">Clientes guardados:</div>`
+    +keys.map(k=>{
+      const data=JSON.parse(localStorage.getItem(k));
+      const name=data?.client?.name||k.replace('ap_client_','');
+      return `<div style="display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid #FDE8ED">
+        <span style="font-size:12px;font-weight:600">${name}</span>
+        <div style="display:flex;gap:6px">
+          <button class="m-btn ghost" style="padding:4px 10px;font-size:11px" onclick="loadFromStorage('${k}')">Cargar</button>
+          <button class="m-btn" style="padding:4px 10px;font-size:11px;background:#fee2e2;color:#991b1b" onclick="deleteStorage('${k}')">Borrar</button>
+        </div>
+      </div>`;
+    }).join('');
 }
-
 function loadFromStorage(key){
   try{
-    S = JSON.parse(localStorage.getItem(key));
-    document.getElementById('clientName').value = S.client?.name || '';
-    document.getElementById('startDate').value  = S.client?.startDate || '2026-04-22';
-    renderRoadmap();
-    renderGantt();
-    updateKPIs();
-    closeModal('importModal');
-    showToast('✅ Cliente cargado');
+    S=JSON.parse(localStorage.getItem(key));
+    document.getElementById('clientName').value=S.client?.name||'';
+    document.getElementById('startDate').value=S.client?.startDate||'2026-04-22';
+    renderRoadmap(); renderGantt(); updateKPIs();
+    closeModal('importModal'); showToast('✅ Cliente cargado');
   }catch(e){ showToast('❌ Error al cargar'); }
 }
-
 function deleteStorage(key){
-  if(confirm('¿Eliminar este cliente del almacenamiento local?')){
-    localStorage.removeItem(key);
-    loadSavedClients();
-  }
+  if(confirm('¿Eliminar este cliente del almacenamiento local?')){ localStorage.removeItem(key); loadSavedClients(); }
 }
 
-/* ─────────────────────────────────────────────────────────
+/* ═══════════════════════════════════════════════
    MODALS
-───────────────────────────────────────────────────────── */
-function openShareModal(){
-  document.getElementById('shareURLBox').style.display = 'none';
-  openModal('shareModal');
-}
-function openImportModal(){
-  document.getElementById('savedClientsList').style.display = 'none';
-  document.getElementById('fileInput').value = '';
-  openModal('importModal');
-}
-function openModal(id){  document.getElementById(id).classList.add('open'); }
+═══════════════════════════════════════════════ */
+function openShareModal(){ document.getElementById('shareURLBox').style.display='none'; openModal('shareModal'); }
+function openImportModal(){ document.getElementById('savedClientsList').style.display='none'; document.getElementById('fileInput').value=''; openModal('importModal'); }
+function openModal(id){ document.getElementById(id).classList.add('open'); }
 function closeModal(id){ document.getElementById(id).classList.remove('open'); }
 
-const dz = document.getElementById('dropZone');
-dz.addEventListener('dragover', e => { e.preventDefault(); dz.classList.add('dragover'); });
-dz.addEventListener('dragleave', () => dz.classList.remove('dragover'));
-dz.addEventListener('drop', e => {
+const dz=document.getElementById('dropZone');
+dz.addEventListener('dragover',e=>{e.preventDefault();dz.classList.add('dragover');});
+dz.addEventListener('dragleave',()=>dz.classList.remove('dragover'));
+dz.addEventListener('drop',e=>{
   e.preventDefault(); dz.classList.remove('dragover');
-  const file = e.dataTransfer.files[0];
-  if(file) { document.getElementById('fileInput').files = e.dataTransfer.files; loadJSONFile({target:{files:[file]}}); }
+  const file=e.dataTransfer.files[0];
+  if(file){ document.getElementById('fileInput').files=e.dataTransfer.files; loadJSONFile({target:{files:[file]}}); }
 });
 
-/* ─────────────────────────────────────────────────────────
-   TOAST
-───────────────────────────────────────────────────────── */
-let toastTimer;
-function showToast(msg){
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.classList.add('show');
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => t.classList.remove('show'), 2800);
-}
-
-/* ─────────────────────────────────────────────────────────
-   CREAR SHEET EN GOOGLE DRIVE VÍA N8N
-───────────────────────────────────────────────────────── */
-const N8N_WEBHOOK_URL = "https://n8n.openip.cl/webhook/fuerza-crear-sheet";
-
+/* ═══════════════════════════════════════════════
+   CREAR SHEET VÍA N8N
+═══════════════════════════════════════════════ */
 async function crearSheet(){
-  if(!S.client.name || S.client.name.trim() === ""){
-    showToast("⚠️ Ingresa el nombre del cliente primero");
+  if(!S.client.name || S.client.name.trim()===''){
+    showToast('⚠️ Ingresa el nombre del cliente primero');
     return;
   }
-
-  openModal("sheetModal");
-  document.getElementById("sheetModalStatus").innerHTML = `
-    <div style="text-align:center;padding:20px 0">
-      <div style="font-size:32px;margin-bottom:12px">⏳</div>
-      <div style="font-size:13px;font-weight:700;color:var(--ap-primary-dk)">Creando Sheet para <strong>${esc(S.client.name)}</strong>...</div>
+  openModal('sheetModal');
+  document.getElementById('sheetModalStatus').innerHTML = `
+    <div style="text-align:center;padding:16px 0">
+      <div style="font-size:36px;margin-bottom:12px">⏳</div>
+      <div style="font-size:13px;font-weight:700;color:var(--ap-primary-dk)">Creando Sheet para <strong>${esc(S.client.name)}</strong>…</div>
       <div style="font-size:11px;color:#999;margin-top:6px">Creando carpeta y hojas en Google Drive</div>
     </div>`;
-
   try {
-    const payload = {
-      clientName:  S.client.name,
-      startDate:   S.client.startDate,
-      roadmap:     S.roadmap,
-      ganttPhases: S.ganttPhases
-    };
-
     const res = await fetch(N8N_WEBHOOK_URL, {
-      method:  "POST",
-      headers: { "Content-Type": "application/json" },
-      body:    JSON.stringify(payload)
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({
+        clientName:  S.client.name,
+        startDate:   S.client.startDate,
+        roadmap:     S.roadmap,
+        ganttPhases: S.ganttPhases
+      })
     });
-
     const data = await res.json();
-
     if(data.ok && data.sheetUrl){
-      document.getElementById("sheetModalStatus").innerHTML = `
+      document.getElementById('sheetModalStatus').innerHTML = `
         <div style="text-align:center;padding:12px 0">
           <div style="font-size:40px;margin-bottom:10px">✅</div>
           <div style="font-size:14px;font-weight:800;color:var(--ap-primary-dk);margin-bottom:6px">¡Sheet creado!</div>
-          <div style="font-size:12px;color:#555;margin-bottom:18px">Carpeta y hojas ROADMAP + GANTT listas para <strong>${esc(data.clientName || S.client.name)}</strong></div>
-          <a href="${data.sheetUrl}" target="_blank"
-             style="display:inline-block;background:var(--ap-primary);color:#fff;padding:10px 24px;border-radius:8px;font-weight:700;font-size:13px;text-decoration:none">
-            📊 Abrir Sheet
-          </a>
+          <div style="font-size:12px;color:#555;margin-bottom:18px">Carpeta y hojas ROADMAP + GANTT listas para <strong>${esc(data.clientName||S.client.name)}</strong></div>
+          <a href="${data.sheetUrl}" target="_blank" style="display:inline-block;background:var(--ap-primary);color:#fff;padding:10px 24px;border-radius:8px;font-weight:700;font-size:13px;text-decoration:none">📊 Abrir Sheet</a>
+          <div style="margin-top:10px"><button class="m-btn ghost" onclick="closeModal('sheetModal')">Cerrar</button></div>
         </div>`;
-      window.open(data.sheetUrl, "_blank");
+      window.open(data.sheetUrl, '_blank');
     } else {
-      throw new Error("Respuesta inesperada del servidor");
+      throw new Error(data.error || 'Respuesta inesperada del servidor');
     }
-  } catch(err) {
-    document.getElementById("sheetModalStatus").innerHTML = `
+  } catch(err){
+    document.getElementById('sheetModalStatus').innerHTML = `
       <div style="text-align:center;padding:12px 0">
         <div style="font-size:36px;margin-bottom:10px">❌</div>
         <div style="font-size:13px;font-weight:700;color:#991b1b;margin-bottom:6px">Error al crear el Sheet</div>
         <div style="font-size:11px;color:#888;margin-bottom:14px">${err.message}</div>
-        <button class="m-btn ghost" onclick="closeModal(\'sheetModal\')">Cerrar</button>
+        <button class="m-btn ghost" onclick="closeModal('sheetModal')">Cerrar</button>
       </div>`;
   }
 }
 
+/* ═══════════════════════════════════════════════
+   TOAST
+═══════════════════════════════════════════════ */
+let toastTimer;
+function showToast(msg){
+  const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show');
+  clearTimeout(toastTimer); toastTimer=setTimeout(()=>t.classList.remove('show'),2800);
+}
 </script>
-
-<!-- ══════════════════════════════════════ MODAL CREAR SHEET -->
-<div class="modal-bg" id="sheetModal">
-  <div class="modal" style="max-width:420px;text-align:center">
-    <button class="modal-close" onclick="closeModal('sheetModal')">✕</button>
-    <h3 style="margin-bottom:4px">📊 Crear Google Sheet</h3>
-    <div id="sheetModalStatus">
-      <div style="font-size:12px;color:#888;margin-bottom:16px">Iniciando...</div>
-    </div>
-  </div>
-</div>
-
 </body>
 </html>
