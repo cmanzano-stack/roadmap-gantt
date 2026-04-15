@@ -693,20 +693,30 @@ function defaultRoadmapRow(id){
   if(!S.roadmap || S.roadmap.length === 0){
     S.roadmap = [
       { id:1, solicitante:'María González', cargo:'Jefa de RRHH', area:'Gestión de Personas',
-        fechaSol:'22/04/2026', desc:'Configuración de ambiente administrador y accesos iniciales.',
-        acciones:'22/04: Reunión kick-off.\n23/04: Solicitud de activos enviada.',
+        fechaSol:'22/04/2026', desc:'Configuración inicial: ambiente administrador, accesos y branding de la plataforma.',
+        acciones:'22/04: Reunión de kick-off realizada. Se definieron responsables y plazos.\n23/04: Solicitud de activos (logo, colores, nombre) enviada al cliente.',
         fechaEnt:'30/04/2026', estado:'inprogress', responsable:'Equipo Apprecio',
-        comentario:'Pendiente logo en alta resolución.' },
+        comentario:'Pendiente logo en alta resolución (mínimo 300px).' },
       { id:2, solicitante:'Carlos Ríos', cargo:'Analista TI', area:'Tecnología',
-        fechaSol:'23/04/2026', desc:'Carga masiva de usuarios y estructura organizacional.',
-        acciones:'24/04: Plantilla de carga enviada.',
+        fechaSol:'23/04/2026', desc:'Carga masiva de usuarios y definición de estructura organizacional (áreas, cargos, centros de costo).',
+        acciones:'24/04: Plantilla de carga enviada al cliente.\n25/04: En espera de respuesta con datos validados.',
         fechaEnt:'07/05/2026', estado:'pending', responsable:'Apprecio + TI Cliente',
-        comentario:'Requiere validación de base de datos.' },
+        comentario:'Requiere validación de base de datos RRHH antes de cargar.' },
       { id:3, solicitante:'Pedro Núñez', cargo:'Jefe TI', area:'Tecnología',
-        fechaSol:'22/04/2026', desc:'Exportación de datos de nómina para carga de colaboradores.',
-        acciones:'22/04: Levantamiento técnico.\n24/04: Pendiente respuesta cliente.',
+        fechaSol:'22/04/2026', desc:'Exportación de datos de nómina para carga inicial de colaboradores en plataforma.',
+        acciones:'22/04: Levantamiento técnico completado. Formato de exportación definido.\n24/04: Cliente aún no comparte archivo de nómina.',
         fechaEnt:'12/05/2026', estado:'blocked', responsable:'TI Cliente + Apprecio',
-        comentario:'⚠️ Bloqueado: cliente no ha compartido formato de exportación.' }
+        comentario:'⚠️ Bloqueado: cliente no ha compartido el archivo de exportación de nómina.' },
+      { id:4, solicitante:'Ana Soto', cargo:'Gerenta de Personas', area:'Gestión de Personas',
+        fechaSol:'24/04/2026', desc:'Definición de reglas de reconocimiento: categorías, montos, flujos de aprobación.',
+        acciones:'24/04: Reunión de levantamiento de reglas realizada.',
+        fechaEnt:'15/05/2026', estado:'pending', responsable:'Equipo Apprecio',
+        comentario:'Cliente debe validar montos de premiación con gerencia.' },
+      { id:5, solicitante:'Equipo Apprecio', cargo:'-', area:'Capacitación',
+        fechaSol:'25/04/2026', desc:'Capacitación a usuarios administradores y APO (Agentes de Premio y Onboarding).',
+        acciones:'25/04: Agenda de capacitación enviada al cliente.',
+        fechaEnt:'28/05/2026', estado:'pending', responsable:'Equipo Apprecio',
+        comentario:'Confirmar asistentes y sala de capacitación.' }
     ];
   }
 
@@ -839,11 +849,21 @@ function setStatus(idx, status){
 }
 
 function addRow(){
+  // Asegurar que la pestaña Roadmap está activa
+  const roadmapBtn = document.querySelector('.tab-btn');
+  if(roadmapBtn && !document.getElementById('view-roadmap').classList.contains('active')){
+    switchTab('roadmap', roadmapBtn);
+  }
   const id = S.roadmap.length ? Math.max(...S.roadmap.map(r=>r.id)) + 1 : 1;
   S.roadmap.push(defaultRoadmapRow(id));
   renderRoadmap();
   updateKPIs();
-  document.querySelector('.tbl-wrap').scrollTop = 99999;
+  autoSaveQuiet();
+  // Scroll al final de la tabla después de render
+  setTimeout(() => {
+    const wrap = document.querySelector('.tbl-wrap');
+    if(wrap) wrap.scrollTop = wrap.scrollHeight;
+  }, 50);
 }
 
 function deleteRow(idx){
@@ -947,6 +967,7 @@ function toggleGanttEdit(){
   ganttEditOpen = !ganttEditOpen;
   const panel = document.getElementById('ganttEditPanel');
   panel.classList.toggle('open', ganttEditOpen);
+  if(ganttEditOpen) renderGanttEdit();
 }
 
 function renderGanttEdit(){
