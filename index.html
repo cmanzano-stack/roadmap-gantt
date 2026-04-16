@@ -97,6 +97,7 @@ tbody td.num-col{color:var(--ap-primary);font-weight:800;text-align:center;width
 .b-validating{background:#FFE4E6;color:#9F1239}
 .b-done      {background:var(--ap-green-bg);color:var(--ap-green)}
 .b-blocked   {background:#FEE2E2;color:#991B1B}
+.b-custom    {background:#F3F4F6;color:#374151}
 .status-menu{position:absolute;top:100%;left:0;z-index:200;background:#fff;border-radius:8px;box-shadow:0 4px 20px rgba(250,52,94,.15);min-width:150px;overflow:hidden;display:none;border:1px solid #F5C6D0;}
 .status-menu.open{display:block}
 .status-opt{padding:8px 14px;font-size:11px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:7px;transition:background .15s;}
@@ -199,6 +200,7 @@ tbody td.num-col{color:var(--ap-primary);font-weight:800;text-align:center;width
     <button class="tb-btn" onclick="openImportModal()">📂 Cargar cliente</button>
     <button class="tb-btn" onclick="openShareModal()">🔗 Compartir / Exportar</button>
     <button class="tb-btn primary" onclick="saveToLocal()">💾 Guardar</button>
+    <button class="tb-btn" onclick="openModal('statusModal')">🏷️ Estados</button>
     <button class="tb-btn success" onclick="crearSheet()">📊 Crear Sheet</button>
   </div>
 </div>
@@ -331,6 +333,41 @@ tbody td.num-col{color:var(--ap-primary);font-weight:800;text-align:center;width
   </div>
 </div>
 
+
+<!-- MODAL ESTADOS PERSONALIZADOS -->
+<div class="modal-bg" id="statusModal">
+  <div class="modal" style="max-width:480px">
+    <button class="modal-close" onclick="closeModal('statusModal')">✕</button>
+    <h3 style="margin-bottom:4px">🏷️ Gestionar Estados</h3>
+    <p style="margin-bottom:14px">Los estados base siempre están disponibles. Agrega estados personalizados para este cliente.</p>
+
+    <div style="margin-bottom:14px">
+      <div style="font-size:10px;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">Estados base (no editables)</div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px">
+        <span class="badge b-pending">⏳ Pendiente</span>
+        <span class="badge b-inprogress">🔵 En Proceso</span>
+        <span class="badge b-validating">🟠 Validando</span>
+        <span class="badge b-done">✅ Finalizado</span>
+        <span class="badge b-blocked">🔴 Bloqueado</span>
+      </div>
+    </div>
+
+    <div style="margin-bottom:14px">
+      <div style="font-size:10px;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">Estados personalizados</div>
+      <div id="customStatusList" style="margin-bottom:10px"></div>
+      <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+        <input id="newStatusLabel" placeholder="Ej: En Revisión Legal" class="gep-inp" style="flex:1;min-width:140px;padding:6px 10px"/>
+        <input id="newStatusColor" type="color" value="#6366F1" style="width:36px;height:34px;border-radius:6px;border:1.5px solid #F5C6D0;cursor:pointer;padding:2px"/>
+        <button class="m-btn primary" style="padding:6px 14px;font-size:11px" onclick="addCustomStatus()">＋ Agregar</button>
+      </div>
+    </div>
+
+    <div class="modal-actions">
+      <button class="m-btn ghost" onclick="closeModal('statusModal')">Cerrar</button>
+    </div>
+  </div>
+</div>
+
 <!-- MODAL CREAR SHEET -->
 <div class="modal-bg" id="sheetModal">
   <div class="modal" style="max-width:420px">
@@ -450,6 +487,7 @@ document.addEventListener("DOMContentLoaded", function init(){
   document.getElementById('clientName').value = S.client.name      || '';
   document.getElementById('startDate').value  = S.client.startDate || '2026-04-22';
 
+  rebuildStatus();
   renderRoadmap();
   renderGantt();
   updateKPIs();
@@ -484,14 +522,27 @@ function updateKPIs(){
 /* ═══════════════════════════════════════════════
    STATUS
 ═══════════════════════════════════════════════ */
-const STATUS = {
+// Estados base — se pueden agregar estados personalizados
+const STATUS_BASE = {
   pending:    {cls:'b-pending',    label:'⏳ Pendiente',  dot:'○', dc:'#9CA3AF'},
   inprogress: {cls:'b-inprogress', label:'🔵 En Proceso', dot:'●', dc:'#FA345E'},
   validating: {cls:'b-validating', label:'🟠 Validando',  dot:'●', dc:'#D42A4E'},
   done:       {cls:'b-done',       label:'✅ Finalizado', dot:'✓', dc:'#065F46'},
   blocked:    {cls:'b-blocked',    label:'🔴 Bloqueado',  dot:'✕', dc:'#DC2626'}
 };
-const STATUS_ORDER = ['pending','inprogress','validating','done','blocked'];
+
+// Estados personalizados (guardados en S.customStatuses)
+let STATUS = { ...STATUS_BASE };
+let STATUS_ORDER = ['pending','inprogress','validating','done','blocked'];
+
+function rebuildStatus() {
+  STATUS = { ...STATUS_BASE };
+  STATUS_ORDER = ['pending','inprogress','validating','done','blocked'];
+  (S.customStatuses || []).forEach(cs => {
+    STATUS[cs.key] = { cls:'b-custom', label: cs.label, dot:'◆', dc: cs.color || '#888' };
+    STATUS_ORDER.push(cs.key);
+  });
+}
 
 /* ═══════════════════════════════════════════════
    ROADMAP RENDER
@@ -776,6 +827,59 @@ dz.addEventListener('drop',e=>{
   if(file){ document.getElementById('fileInput').files=e.dataTransfer.files; loadJSONFile({target:{files:[file]}}); }
 });
 
+
+/* ═══════════════════════════════════════════════
+   ESTADOS PERSONALIZADOS
+═══════════════════════════════════════════════ */
+function renderCustomStatusList() {
+  const el = document.getElementById('customStatusList');
+  const list = S.customStatuses || [];
+  if (!list.length) {
+    el.innerHTML = '<div style="font-size:11px;color:#ccc;font-style:italic">Sin estados personalizados aún</div>';
+    return;
+  }
+  el.innerHTML = list.map((cs, i) => `
+    <div style="display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid #FDE8ED">
+      <div style="width:14px;height:14px;border-radius:3px;background:${cs.color};flex-shrink:0"></div>
+      <span style="font-size:12px;font-weight:600;flex:1">${esc(cs.label)}</span>
+      <button class="row-btn del" onclick="removeCustomStatus(${i})">✕</button>
+    </div>`).join('');
+}
+
+function addCustomStatus() {
+  const label = document.getElementById('newStatusLabel').value.trim();
+  const color = document.getElementById('newStatusColor').value;
+  if (!label) { showToast('⚠️ Ingresa un nombre para el estado'); return; }
+  if (!S.customStatuses) S.customStatuses = [];
+  // key: lowercase slug
+  const key = label.toLowerCase().replace(/[^a-z0-9]/g, '_').substring(0, 20);
+  if (STATUS[key]) { showToast('⚠️ Ya existe un estado con ese nombre'); return; }
+  S.customStatuses.push({ key, label, color });
+  document.getElementById('newStatusLabel').value = '';
+  rebuildStatus();
+  renderCustomStatusList();
+  renderRoadmap();
+  autoSaveQuiet();
+  showToast('✅ Estado agregado: ' + label);
+}
+
+function removeCustomStatus(idx) {
+  if (!confirm('¿Eliminar este estado? Las filas que lo usen quedarán con el valor anterior.')) return;
+  S.customStatuses.splice(idx, 1);
+  rebuildStatus();
+  renderCustomStatusList();
+  renderRoadmap();
+  autoSaveQuiet();
+  showToast('Estado eliminado');
+}
+
+// Render list when modal opens
+const _openModal = openModal;
+openModal = function(id) {
+  _openModal(id);
+  if (id === 'statusModal') renderCustomStatusList();
+};
+
 /* ═══════════════════════════════════════════════
    CREAR SHEET VÍA N8N
 ═══════════════════════════════════════════════ */
@@ -797,10 +901,11 @@ async function crearSheet(){
       mode:'cors',
       headers:{'Content-Type':'application/json'},
       body: JSON.stringify({
-        clientName:  S.client.name,
-        startDate:   S.client.startDate,
-        roadmap:     S.roadmap,
-        ganttPhases: S.ganttPhases
+        clientName:     S.client.name,
+        startDate:      S.client.startDate,
+        roadmap:        S.roadmap,
+        ganttPhases:    S.ganttPhases,
+        customStatuses: (S.customStatuses || []).map(cs => cs.label)
       })
     });
 
